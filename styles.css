@@ -1,16 +1,26 @@
 /* General Styles */
+:root {
+    --primary-color: #333;
+    --secondary-color: #555;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --white-color: #fff;
+    --blue-color: blue;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
+/* Header Styles */
 header {
     font-weight: bold;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--white-color);
     padding: 10px 0;
     text-align: center;
 }
@@ -19,9 +29,11 @@ header h1 {
     margin: 0;
 }
 
+/* Navigation Styles */
 nav ul {
     list-style: none;
     padding: 0;
+    text-align: center;
 }
 
 nav ul li {
@@ -29,19 +41,31 @@ nav ul li {
     margin: 0 10px;
 }
 
-nav ul li a {
-    color: #fff;
+.Real-Nav ul li a {
+    color: var(--white-color);
     text-decoration: none;
+    padding: 10px 15px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
+.Real-Nav ul li a:hover {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Section Styles */
 section {
-    padding: 20px;
-    margin: 20px 0;
-    background-color: #fff;
+    padding: 40px;
+    margin: 40px 0;
+    background-color: var(--white-color);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Form Styles */
 form {
     max-width: 600px;
     margin: 0 auto;
@@ -51,7 +75,7 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color);
 }
 
 input[type="text"],
@@ -67,8 +91,8 @@ textarea {
 }
 
 input[type="submit"] {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--white-color);
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -77,19 +101,21 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #555;
+    background-color: var(--secondary-color);
 }
 
+/* Footer Styles */
 footer {
     text-align: center;
-    padding: 10px 0;
-    background-color: #333;
-    color: #fff;
+    padding: 2.5px 0;
+    background-color: var(--primary-color);
+    color: var(--white-color);
     position: fixed;
     width: 100%;
     bottom: 0;
 }
 
+/* Projects Styles */
 .projects-container {
     display: flex;
     justify-content: space-around;
@@ -105,7 +131,7 @@ footer {
 }
 
 .project a {
-    color: #333;
+    color: var(--text-color);
     text-decoration: none;
     font-weight: bold;
 }
@@ -114,11 +140,12 @@ footer {
     text-decoration: underline;
 }
 
-.project p{
+.project p {
     font-weight: bold;
-    color: blue;
+    color: var(--blue-color);
 }
 
+/* Profile Picture Styles */
 .profile-pic {
     display: block;
     margin: 20px auto;
@@ -128,11 +155,14 @@ footer {
     object-fit: cover;
 }
 
-.center{
+/* Centered Text Styles */
+.center {
     text-align: center;
 }
 
-.phone{
+/* Phone Styles */
+.phone {
     text-align: center;
     font-size: large;
+    padding: 2px;
 }
