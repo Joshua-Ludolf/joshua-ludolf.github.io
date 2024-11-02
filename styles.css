@@ -9,7 +9,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family:'Lucida Sans';
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
@@ -107,6 +107,7 @@ input[type="submit"]:hover {
 /* Footer Styles */
 footer {
     text-align: center;
+    font: 'Lucida Sans';
     padding: 2.5px 0;
     background-color: var(--primary-color);
     color: var(--white-color);
@@ -137,7 +138,8 @@ footer {
 }
 
 .project a:hover {
-    text-decoration: underline;
+    color: var(--background-color);
+    background-color: var(--secondary-color);
 }
 
 .project p {
@@ -165,4 +167,28 @@ footer {
     text-align: center;
     font-size: large;
     padding: 2px;
+}
+
+.linkedin {
+    margin: auto;
+    border-radius: 50%; /* This makes the picture circular */
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.github { 
+    margin: auto;
+    border-radius: 75%; /* This makes the picture circular */
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.devpost {
+    margin: auto;
+    border-radius: 75%; /* This makes the picture circular */
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
 }
