@@ -9,7 +9,7 @@
 }
 
 body {
-    font-family:'Lucida Sans';
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
@@ -107,7 +107,6 @@ input[type="submit"]:hover {
 /* Footer Styles */
 footer {
     text-align: center;
-    font: 'Lucida Sans';
     padding: 2.5px 0;
     background-color: var(--primary-color);
     color: var(--white-color);
