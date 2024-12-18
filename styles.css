@@ -210,3 +210,45 @@ footer {
     margin: 0 auto;
     padding: 20px;
 }
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: var(--secondary-color);
+}
+
+.subtle-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: transparent;
+    color: var(--primary-color);
+    text-decoration: none;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+.subtle-button:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.bold-title {
+    font-weight: 900;
+    font-size: 2.5em;
+}
