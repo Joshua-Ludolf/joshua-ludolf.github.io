@@ -69,18 +69,22 @@ section {
 form {
     max-width: 600px;
     margin: 0 auto;
+    background-color: var(--white-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-label {
+form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
     color: var(--text-color);
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
+form input[type="text"],
+form input[type="email"],
+form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -90,7 +94,7 @@ textarea {
     font-size: 16px;
 }
 
-input[type="submit"] {
+form input[type="submit"] {
     background-color: var(--primary-color);
     color: var(--white-color);
     padding: 10px 20px;
@@ -100,7 +104,7 @@ input[type="submit"] {
     font-size: 16px;
 }
 
-input[type="submit"]:hover {
+form input[type="submit"]:hover {
     background-color: var(--secondary-color);
 }
 
@@ -118,11 +122,17 @@ footer {
 /* Projects Styles */
 .projects-container {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
 }
 
 .project {
+    flex: 1 1 calc(33.333% - 20px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--white-color);
     margin-bottom: 20px;
 }
 
@@ -131,19 +141,22 @@ footer {
 }
 
 .project a {
-    color: var(--text-color);
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
 }
 
 .project a:hover {
+    text-decoration: underline;
     color: var(--background-color);
     background-color: var(--secondary-color);
 }
 
 .project p {
-    font-weight: bold;
-    color: var(--blue-color);
+    font-size: 0.9em;
+    color: var(--secondary-color);
 }
 
 /* Profile Picture Styles */
@@ -190,4 +203,10 @@ footer {
     width: 50px;
     height: 50px;
     object-fit: cover;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
