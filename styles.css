@@ -252,3 +252,16 @@ footer {
     font-weight: 900;
     font-size: 2.5em;
 }
+
+.padded-links {
+    padding-bottom: 20px;
+}
+
+.social-links a {
+    text-decoration: none;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+    text-decoration: none;
+}
