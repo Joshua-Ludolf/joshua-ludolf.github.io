@@ -192,3 +192,12 @@ footer {
     height: 50px;
     object-fit: cover;
 }
+
+.social-links nav {
+    list-style-type: none;
+    padding: 0;
+}
+.social-links nav a {
+    display: inline-block;
+    margin-right: 10px;
+}
