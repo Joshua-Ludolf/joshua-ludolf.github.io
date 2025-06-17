@@ -1,53 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RB0D8P40M7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-RB0D8P40M7');
-</script>
+<head>    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RB0D8P40M7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RB0D8P40M7');
+    </script>
+    
+    <!-- Cookiebot -->
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d78d74d0-02c0-4d43-99df-0f6f98329ed7" type="text/javascript" async></script>
-    <script data-cookieconsent="ignore">   window.dataLayer = window.dataLayer || [];    function gtag() {        dataLayer.push(arguments);    }    
-        gtag("consent", "default", {        
-            ad_personalization: "denied",        
-            ad_storage: "denied",        
-            ad_user_data: "denied",        
-            analytics_storage: "denied",        
-            functionality_storage: "denied",        
-            personalization_storage: "denied",        
-            security_storage: "granted",        
-            wait_for_update: 500,    });    
-        gtag("set", "ads_data_redaction", true);    gtag("set", "url_passthrough", false);</script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6347735547196049"
-     crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-6347735547196049">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RB0D8P40M7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-RB0D8P40M7');
-</script>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d78d74d0-02c0-4d43-99df-0f6f98329ed7" type="text/javascript" async></script>
-    <script data-cookieconsent="ignore">   window.dataLayer = window.dataLayer || [];    function gtag() {        dataLayer.push(arguments);    }    
-        gtag("consent", "default", {        
-            ad_personalization: "denied",        
-            ad_storage: "denied",        
-            ad_user_data: "denied",        
-            analytics_storage: "denied",        
-            functionality_storage: "denied",        
-            personalization_storage: "denied",        
-            security_storage: "granted",        
-            wait_for_update: 500,    });    
-        gtag("set", "ads_data_redaction", true);    gtag("set", "url_passthrough", false);</script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6347735547196049"
-     crossorigin="anonymous"></script>
+    <script data-cookieconsent="ignore">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag("consent", "default", {
+            ad_personalization: "denied",
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            analytics_storage: "denied",
+            functionality_storage: "denied",
+            personalization_storage: "denied",
+            security_storage: "granted",
+            wait_for_update: 500,
+        });
+        gtag("set", "ads_data_redaction", true);
+        gtag("set", "url_passthrough", false);
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6347735547196049" crossorigin="anonymous"></script>
     <meta name="google-adsense-account" content="ca-pub-6347735547196049">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,31 +66,140 @@
             </ul>
         </nav>
         
-    </header>
-    <div class="container">
+    </header>    <div class="container">
         <section id="projects">
+            <div class="projects-header">
+                <h2>My Projects</h2>
+                <p class="projects-intro">
+                    Here are some of the projects I've worked on, showcasing my skills in web development, 
+                    machine learning, and software engineering. Each project demonstrates different aspects 
+                    of my technical expertise and problem-solving abilities.
+                </p>
+            </div>
+            
             <div class="projects-container">
-                <div class="project">
-                    <h3>FSA-Benchmark Reproduction Research</h3>
-                    <p>This research tries to identify best machine learning model to detect slow fail in disk drives.</p>
-                    <a href="https://github.com/Joshua-Ludolf/FSA-benchmarking-Reproduction-Research" target="_blank">View on GitHub</a>
-                </div>
-                <div class="project">
-                    <h3>Promising Products (Web Application)</h3>
-                    <p>
-                        <i>I contributed to the Machine Learning and Data processing in this project. Additionally, the frontend uses React.jsx framework! 🚀</i>
+                <div class="project featured-project">
+                    <div class="project-header">
+                        <h3>FSA-Benchmark Reproduction Research</h3>
+                        <span class="project-type">Research Project</span>
+                    </div>
+                    <p class="project-description">
+                        This research project focuses on identifying the best machine learning models 
+                        to detect slow failures in disk drives. The work involves data analysis, 
+                        model comparison, and performance benchmarking.
                     </p>
-                    <a href="https://github.com/Joshua-Ludolf/Promising-Products" target="_blank">View on GitHub</a>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Data Analysis</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Joshua-Ludolf/FSA-benchmarking-Reproduction-Research" target="_blank" class="project-link">
+                            <i class="icon">🔗</i> View on GitHub
+                        </a>
+                    </div>
                 </div>
+
                 <div class="project">
-                    <h3>Techxacial (Web Application)</h3>
-                    <p>This application aims to provide banking services to underbanked and unbanked populations, offering them an accessible and easy to utilize banking service. I implemented Flask Framework and MySQL database 📊. Additionally, the frontend uses React.jsx framework! </p>
-                    <a href="https://github.com/Joshua-Ludolf/TECHXACIAL/" target="_blank">View on GitHub</a>
+                    <div class="project-header">
+                        <h3>Promising Products</h3>
+                        <span class="project-type">Web Application</span>
+                    </div>
+                    <p class="project-description">
+                        A comprehensive web application where I contributed to the machine learning 
+                        and data processing components. The frontend utilizes modern React.js framework 
+                        for a responsive user experience.
+                    </p>
+                    <div class="project-highlights">
+                        <p><strong>My Contributions:</strong></p>
+                        <ul>
+                            <li>Machine Learning implementation</li>
+                            <li>Data processing and analysis</li>
+                            <li>Backend integration</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Data Processing</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Joshua-Ludolf/Promising-Products" target="_blank" class="project-link">
+                            <i class="icon">🔗</i> View on GitHub
+                        </a>
+                    </div>
                 </div>
+
                 <div class="project">
-                    <h3>Fossil Finances (Web Application)</h3>
-                    <p>Banking Service For the Elderly, I implemented the Flask Framework for the backend 💫! Additionally, the frontend uses React.jsx and we used Firebase as our database!</p>
-                    <a href="https://github.com/joshua-ludolf/FossilFinances/" target="_blank">View on GitHub</a>
+                    <div class="project-header">
+                        <h3>Techxacial</h3>
+                        <span class="project-type">Banking Application</span>
+                    </div>
+                    <p class="project-description">
+                        A financial technology application designed to provide banking services to 
+                        underbanked and unbanked populations, offering accessible and easy-to-use 
+                        banking services.
+                    </p>
+                    <div class="project-highlights">
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Accessible banking interface</li>
+                            <li>Secure transaction processing</li>
+                            <li>User-friendly design</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Web Development</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Joshua-Ludolf/TECHXACIAL/" target="_blank" class="project-link">
+                            <i class="icon">🔗</i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <h3>Fossil Finances</h3>
+                        <span class="project-type">Senior-Focused Banking</span>
+                    </div>
+                    <p class="project-description">
+                        A specialized banking service designed specifically for elderly users, 
+                        featuring an intuitive interface and simplified banking operations.
+                    </p>
+                    <div class="project-highlights">
+                        <p><strong>Technical Implementation:</strong></p>
+                        <ul>
+                            <li>Flask backend development</li>
+                            <li>Firebase database integration</li>
+                            <li>Senior-friendly UI/UX design</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Accessibility</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/joshua-ludolf/FossilFinances/" target="_blank" class="project-link">
+                            <i class="icon">🔗</i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="projects-footer">
+                <p>Want to see more of my work? Connect with me on GitHub or LinkedIn!</p>
+                <div class="cta-buttons">
+                    <a href="https://github.com/joshua-ludolf" target="_blank" class="btn btn-primary">
+                        View All Repositories
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
         </section>
