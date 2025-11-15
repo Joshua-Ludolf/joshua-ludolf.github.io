@@ -19,13 +19,15 @@ jobs:
           node-version: '18' # Or your preferred Node.js version
 
       - name: Install dependencies
-        run: npm install --prefix vue-project
+        run: npm install
+        working-directory: ./
 
       - name: Build project
-        run: npm run build --prefix vue-project
+        run: npm run build
+        working-directory: ./
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./vue-project/dist
+          publish_dir: ./dist
