@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <script>
+      // GitHub Pages serves 404.html for unknown paths (e.g. /projects).
+      // Redirect to /?/projects so index.html can restore the URL and the
+      // Vue Router (history mode) app can render the correct route.
+      // Based on the widely-used SPA GitHub Pages pattern.
+      (function (location) {
+        const segmentCount = 0
+
+        const pathname = location.pathname
+          .split('/')
+          .slice(0, 1 + segmentCount)
+          .join('/')
+
+        const redirectPath = location.pathname
+          .split('/')
+          .slice(1 + segmentCount)
+          .join('/')
+
+        const search = location.search
+          ? '&' + location.search.slice(1).replace(/&/g, '~and~')
+          : ''
+
+        location.replace(pathname + '/?/' + redirectPath + search + location.hash)
+      })(window.location)
+    </script>
+  </body>
+</html>

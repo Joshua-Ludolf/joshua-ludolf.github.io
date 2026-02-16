@@ -5,7 +5,22 @@
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vite App</title>
-    <script type="module" crossorigin src="/assets/index-BNEhEIj8.js"></script>
+    <script type="text/javascript">
+      // GitHub Pages SPA fallback support (pairs with /404.html).
+      // If we land on /?/some/path, rewrite the URL back to /some/path
+      // so Vue Router (history mode) can take over.
+      (function (location) {
+        if (location.search && location.search.startsWith('?/')) {
+          const decoded = location.search
+            .slice(2)
+            .split('&')
+            .map((s) => s.replace(/~and~/g, '&'))
+            .join('?')
+          window.history.replaceState(null, '', location.pathname + decoded + location.hash)
+        }
+      })(window.location)
+    </script>
+    <script type="module" crossorigin src="/assets/index-H1tfBYQj.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D1ddr9qb.css">
   </head>
   <body>
