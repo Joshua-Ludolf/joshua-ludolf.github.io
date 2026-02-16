@@ -5,6 +5,15 @@ import { ref } from 'vue'
 const projects = ref([
   {
     id: 1,
+    title: 'rasptorch',
+    type: 'Python Package',
+    description: 'A Python package for Raspberry Pi to build neural networks, llms, etc. using its integrated Vulkan GPU (similar to PyTorch), providing utilities and tools to simplify development and enhance functionality.',
+    technologies: ['Python', 'Raspberry Pi', 'IoT'],
+    githubUrl: 'https://github.com/Joshua-Ludolf/rasptorch',
+    featured: true
+  },
+  {
+    id: 2,
     title: 'FSA-Benchmark Reproduction Research',
     type: 'Research Project',
     description: 'This research project focuses on identifying the best machine learning models to detect slow failures in disk drives. The work involves data analysis, model comparison, and performance benchmarking.',
@@ -13,7 +22,7 @@ const projects = ref([
     featured: true
   },
   {
-    id: 2, 
+    id: 3,
     title: 'Promising Products',
     type: 'Web Application',
     description: 'A comprehensive web application where I contributed to the machine learning and data processing components. The frontend utilizes modern React.js framework for a responsive user experience.',
@@ -30,7 +39,7 @@ const projects = ref([
     featured: false
   },
   {
-    id: 3,
+    id: 4,
     title: 'Techxacial', 
     type: 'Banking Application',
     description: 'A financial technology application designed to provide banking services to underbanked and unbanked populations, offering accessible and easy-to-use banking services.',
@@ -47,7 +56,7 @@ const projects = ref([
     featured: false
   },
   {
-    id: 4,
+    id: 5,
     title: 'Fossil Finances',
     type: 'Senior-Focused Banking',
     description: 'A specialized banking service designed specifically for elderly users, featuring an intuitive interface and simplified banking operations.',
