@@ -3,8 +3,8 @@ import { ref } from 'vue'
 
 // Reactive data for skills and experience
 const skills = ref({
-  programming: 'CSS, HTML, Java, Markdown, Python, SQL',
-  frameworks: 'Django, FastAPI, Flask, JavaFX',
+  programming: 'CSS, HTML, Java, Markdown, Maven, Python, SQL',
+  frameworks: 'Django, FastAPI, Flask, JavaFX', 'PyTorch', 'TensorFlow',
   operatingSystems: 'Linux, Windows',
   tools: 'Docker, Git, GitHub, GitHub Copilot, IntelliJ IDEA, Jupyter Notebook, VS Code'
 })
@@ -13,7 +13,6 @@ const experience = ref([
   'Developing backend services using Flask',
   'Creating databases from SQL to Firebase',
   'Processing data for Machine Learning applications',
-  'Building interactive frontends with React',
   'Implementing full-stack web applications'
 ])
 
