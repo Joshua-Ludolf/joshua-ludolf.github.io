@@ -84,67 +84,49 @@ const pageInfo = ref({
   <div class="page-wrapper">
     <div class="container">
       <section id="projects">
-      <div class="projects-header">
-        <h2>{{ pageInfo.title }}</h2>
-        <p class="projects-intro">
-          {{ pageInfo.intro }}
-        </p>
-      </div>
-      
-      <div class="projects-container">
-        <div 
-          v-for="project in projects" 
-          :key="project.id"
-          :class="['project', { 'featured-project': project.featured }]"
-        >
-          <div class="project-header">
-            <h3>{{ project.title }}</h3>
-            <span class="project-type">{{ project.type }}</span>
-          </div>
-          <p class="project-description">
-            {{ project.description }}
-          </p>
-          
-          <div v-if="project.highlights" class="project-highlights">
-            <p><strong>{{ project.highlights.title }}</strong></p>
-            <ul>
-              <li v-for="item in project.highlights.items" :key="item">{{ item }}</li>
-            </ul>
-          </div>
-          
-          <div class="project-tech">
-            <span 
-              v-for="tech in project.technologies" 
-              :key="tech"
-              class="tech-tag"
-            >
-              {{ tech }}
-            </span>
-          </div>
-          <div class="project-links">
-            <a 
-              :href="project.githubUrl" 
-              target="_blank" 
-              class="project-link"
-            >
-              <i class="icon">🔗</i> View on GitHub
-            </a>
-          </div>
+        <div class="projects-header">
+          <h2>{{ pageInfo.title }}</h2>
+          <p class="projects-intro">{{ pageInfo.intro }}</p>
         </div>
-      </div>
-      
-      <div class="projects-footer">
-        <p>Want to see more of my work? Connect with me on GitHub or LinkedIn!</p>
-        <div class="cta-buttons">
-          <a 
-            href="https://github.com/joshua-ludolf" 
-            target="_blank" 
-            class="btn btn-primary"
+
+        <div class="projects-container">
+          <div
+            v-for="project in projects"
+            :key="project.id"
+            :class="['project', { 'featured-project': project.featured }]"
           >
-            View All Repositories
-          </a>
-          <router-link to="/contact" class="btn btn-secondary">Get In Touch</router-link>
+            <div class="project-header">
+              <h3>{{ project.title }}</h3>
+              <span class="project-type">{{ project.type }}</span>
+            </div>
+
+            <p class="project-description">{{ project.description }}</p>
+
+            <div v-if="project.highlights" class="project-highlights">
+              <p><strong>{{ project.highlights.title }}</strong></p>
+              <ul>
+                <li v-for="item in project.highlights.items" :key="item">{{ item }}</li>
+              </ul>
+            </div>
+
+            <div class="project-tech">
+              <span v-for="tech in project.technologies" :key="tech" class="tech-tag">{{ tech }}</span>
+            </div>
+
+            <div class="project-links">
+              <a :href="project.githubUrl" target="_blank" class="project-link">
+                🔗 View on GitHub
+              </a>
+            </div>
+          </div>
         </div>
+
+        <div class="projects-footer">
+          <p>Want to see more of my work? Connect with me on GitHub or LinkedIn!</p>
+          <div class="cta-buttons">
+            <a href="https://github.com/joshua-ludolf" target="_blank" class="btn btn-primary">View All Repositories</a>
+            <router-link to="/contact" class="btn btn-secondary">Get In Touch</router-link>
+          </div>
         </div>
       </section>
     </div>

@@ -38,76 +38,77 @@ const aboutInfo = ref({
   <div class="page-wrapper">
     <section id="about">
       <div class="container">
-      <!-- Introduction Section -->
-      <div class="about-intro">
-        <h2>About Me</h2>
-        <p class="intro-text">
-          {{ aboutInfo.intro }}
-        </p>
-      </div>
+        <!-- Introduction -->
+        <div class="about-intro">
+          <h2>About Me</h2>
+          <p class="intro-text">{{ aboutInfo.intro }}</p>
+        </div>
 
-      <!-- Main Content Grid -->
-      <div class="about-grid">
-        <!-- Skills Section -->
-        <div class="about-card">
-          <h3><i class="icon">💻</i> Technical Skills</h3>
-          <div class="skills-section">
-            <div class="skill-group">
-              <h4>Programming Languages</h4>
-              <p>{{ skills.programming }}</p>
-            </div>
-            <div class="skill-group">
-              <h4>Frameworks & Libraries</h4>
-              <p>{{ skills.frameworks }}</p>
-            </div>
-            <div class="skill-group">
-              <h4>Operating Systems</h4>
-              <p>{{ skills.operatingSystems }}</p>
-            </div>
-            <div class="skill-group">
-              <h4>Development Tools</h4>
-              <p>{{ skills.tools }}</p>
+        <!-- Cards grid -->
+        <div class="about-grid">
+          <!-- Skills -->
+          <div class="about-card">
+            <h3><i class="icon">💻</i> Technical Skills</h3>
+            <div class="skills-section">
+              <div class="skill-group">
+                <h4>Programming Languages</h4>
+                <p>{{ skills.programming }}</p>
+              </div>
+              <div class="skill-group">
+                <h4>Frameworks &amp; Libraries</h4>
+                <p>{{ skills.frameworks }}</p>
+              </div>
+              <div class="skill-group">
+                <h4>Operating Systems</h4>
+                <p>{{ skills.operatingSystems }}</p>
+              </div>
+              <div class="skill-group">
+                <h4>Development Tools</h4>
+                <p>{{ skills.tools }}</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Experience Section -->
-        <div class="about-card">
-          <h3><i class="icon">🚀</i> Experience</h3>
-          <p>
-            I have worked on various projects, including <strong>web applications</strong> and <strong>machine learning models</strong>. 
-            My experience includes:
-          </p>
-          <ul class="experience-list">
-            <li v-for="item in experience" :key="item">{{ item }}</li>
-          </ul>
-        </div>
-
-        <!-- Education Section -->
-        <div class="about-card">
-          <h3><i class="icon">🎓</i> Education</h3>
-          <div class="education-info">
-            <h4>Previous Studies</h4>
-            <p>{{ education.previous.degree }}<br>
-            <strong>{{ education.previous.institution }}</strong><br>
-            Expected Graduation: {{ education.previous.graduation }}</p>
-            
-            <h4>Current/Future Studies</h4>
-            <p>{{ education.current.degree }}<br>
-            <strong>{{ education.current.institution }}</strong><br>
-            Expected Graduation: {{ education.current.graduation }}</p>
+          <!-- Experience -->
+          <div class="about-card">
+            <h3><i class="icon">🚀</i> Experience</h3>
+            <p>
+              I have worked on various projects, including <strong>web applications</strong> and
+              <strong>machine learning models</strong>. My experience includes:
+            </p>
+            <ul class="experience-list">
+              <li v-for="item in experience" :key="item">{{ item }}</li>
+            </ul>
           </div>
-        </div>
 
-        <!-- Contact CTA Section -->
-        <div class="about-card contact-cta">
-          <h3><i class="icon">📧</i> Let's Connect</h3>
-          <p>
-            I'm always interested in discussing new opportunities, collaborating on projects, 
-            or simply connecting with fellow tech enthusiasts.
-          </p>
-          <router-link to="/contact" class="cta-button">Get In Touch</router-link>
-        </div>
+          <!-- Education -->
+          <div class="about-card">
+            <h3><i class="icon">🎓</i> Education</h3>
+            <div class="education-info">
+              <h4>Alumni</h4>
+              <p>
+                {{ education.previous.degree }}<br>
+                <strong>{{ education.previous.institution }}</strong><br>
+                Graduated: {{ education.previous.graduation }}
+              </p>
+              <h4>Currently Pursuing</h4>
+              <p>
+                {{ education.current.degree }}<br>
+                <strong>{{ education.current.institution }}</strong><br>
+                Expected: {{ education.current.graduation }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Connect CTA -->
+          <div class="about-card contact-cta">
+            <h3><i class="icon">📧</i> Let's Connect</h3>
+            <p>
+              I'm always interested in discussing new opportunities, collaborating on
+              projects, or simply connecting with fellow tech enthusiasts.
+            </p>
+            <router-link to="/contact" class="cta-button">Get In Touch</router-link>
+          </div>
         </div>
       </div>
     </section>
