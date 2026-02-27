@@ -1,6 +1,0 @@
-{
-  "siteId": "c44c179c-c6dd-48bb-970c-879aef77e572",
-  "domain": "joshua-ludolf",
-  "buildCommand": "npm run build",
-  "buildDir": "."
-}
