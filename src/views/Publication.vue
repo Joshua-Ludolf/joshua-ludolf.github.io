@@ -169,4 +169,93 @@
   background-color: #e0e0e0;
   margin: 40px 0;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .view-header-title {
+    padding: 2rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .view-header-title h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .view-header-title .subheading {
+    font-size: 0.95rem;
+  }
+
+  .publication-card {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .publication-title {
+    font-size: 1.5em;
+  }
+
+  .publication-meta {
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .divider {
+    margin: 2rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .view-header-title {
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .view-header-title h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .view-header-title .subheading {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .publication-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .publication-title {
+    font-size: 1.2em;
+    margin-bottom: 0.75rem;
+  }
+
+  .publication-meta {
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .meta-item {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .meta-label {
+    min-width: 70px;
+  }
+
+  .summary-text {
+    font-size: 1em;
+    padding-left: 1rem;
+    margin-top: 1rem;
+  }
+
+  .divider {
+    margin: 1.5rem 0;
+  }
+}
 </style>
