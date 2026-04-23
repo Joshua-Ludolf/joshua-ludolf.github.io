@@ -25,6 +25,16 @@ const socialLinks = [
   }
 ]
 
+const navLinks = [
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/publication', label: 'Publications' },
+  { to: '/contact', label: 'Contact' },
+  { to: '/privacy', label: 'Privacy Policy' },
+  { to: '/terms', label: 'Terms of Service' }
+]
+
 const handleScroll = () => {
   scrolled.value = window.scrollY > 20
 }
@@ -59,11 +69,9 @@ router.afterEach(() => {
 
       <!-- Desktop Nav -->
       <nav class="desktop-nav">
-        <router-link to="/">Home</router-link>
-        <router-link to="/about">About</router-link>
-        <router-link to="/projects">Projects</router-link>
-        <router-link to="/publication">Publications</router-link>
-        <router-link to="/contact">Contact</router-link>
+        <router-link v-for="link in navLinks.slice(0, 5)" :key="link.to" :to="link.to">
+          {{ link.label }}
+        </router-link>
       </nav>
 
       <!-- Social Icons -->
@@ -88,7 +96,15 @@ router.afterEach(() => {
         </div>
 
         <!-- Hamburger Menu -->
-        <button class="hamburger" @click="toggleMobileMenu" :class="{ active: mobileMenuOpen }" aria-label="Toggle menu">
+        <button
+          class="hamburger"
+          type="button"
+          @click="toggleMobileMenu"
+          :class="{ active: mobileMenuOpen }"
+          :aria-expanded="mobileMenuOpen"
+          aria-controls="mobile-navigation"
+          aria-label="Toggle menu"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -96,14 +112,20 @@ router.afterEach(() => {
       </div>
 
       <!-- Mobile Menu -->
-      <nav :class="['mobile-nav', { open: mobileMenuOpen }]">
-        <router-link to="/" @click="closeMobileMenu">Home</router-link>
-        <router-link to="/about" @click="closeMobileMenu">About</router-link>
-        <router-link to="/projects" @click="closeMobileMenu">Projects</router-link>
-        <router-link to="/publication" @click="closeMobileMenu">Publications</router-link>
-        <router-link to="/contact" @click="closeMobileMenu">Contact</router-link>
-        <router-link to="/privacy" @click="closeMobileMenu">Privacy Policy</router-link>
-        <router-link to="/terms" @click="closeMobileMenu">Terms of Service</router-link>
+      <nav id="mobile-navigation" :class="['mobile-nav', { open: mobileMenuOpen }]">
+        <div class="mobile-nav-header">
+          <span class="mobile-nav-title">Navigate</span>
+          <button type="button" class="mobile-nav-close" @click="closeMobileMenu" aria-label="Close menu">
+            Close
+          </button>
+        </div>
+
+        <div class="mobile-nav-links">
+          <router-link v-for="link in navLinks" :key="link.to" :to="link.to" @click="closeMobileMenu">
+            {{ link.label }}
+          </router-link>
+        </div>
+
         <div class="mobile-socials">
           <a v-for="link in socialLinks" :key="link.name" :href="link.url" target="_blank" :aria-label="link.name" class="social-icon-btn" :data-icon="link.icon">
             <svg v-if="link.icon === 'linkedin'" viewBox="0 0 24 24" fill="currentColor">
@@ -123,6 +145,12 @@ router.afterEach(() => {
              </svg>
            </a>
          </div>
+      </nav>
+
+      <nav class="mobile-quick-nav" aria-label="Mobile route navigation">
+        <router-link v-for="link in navLinks" :key="link.to" :to="link.to">
+          {{ link.label }}
+        </router-link>
       </nav>
   </header>
 </template>
@@ -353,34 +381,62 @@ router.afterEach(() => {
 
 /* Mobile Nav */
 .mobile-nav {
-  display: none;
-  position: absolute;
-  top: 72px;
+  position: fixed;
+  top: var(--header-height);
   left: 0;
   right: 0;
+  bottom: 0;
+  display: flex;
   flex-direction: column;
+  gap: 1rem;
   padding: 1rem;
   border-top: 1px solid rgba(79, 70, 229, 0.15);
   background: rgba(15, 23, 42, 0.98);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   z-index: 999;
+  overflow-y: auto;
+  transform: translateY(-12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-nav.open {
-  display: flex;
-  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mobile-nav-title {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.mobile-nav-close {
+  color: #fff;
+  background: rgba(79, 70, 229, 0.18);
+  border: 1px solid rgba(79, 70, 229, 0.35);
+  border-radius: 9999px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-nav a {
@@ -419,8 +475,16 @@ router.afterEach(() => {
   border-top: 1px solid rgba(79, 70, 229, 0.15);
 }
 
+.mobile-quick-nav {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .desktop-nav {
+    display: none;
+  }
+
+  .header-socials > .social-icon-btn {
     display: none;
   }
   
@@ -446,6 +510,38 @@ router.afterEach(() => {
   
   .header-socials {
     gap: 1rem;
+  }
+
+  .mobile-quick-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    padding: 0 1rem 1rem;
+  }
+
+  .mobile-quick-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.75rem 0.9rem;
+    border-radius: 14px;
+    background: rgba(79, 70, 229, 0.14);
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    border: 1px solid rgba(79, 70, 229, 0.2);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .mobile-quick-nav a.router-link-active,
+  .mobile-quick-nav a.router-link-exact-active {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.35), rgba(6, 182, 212, 0.22));
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-nav {
+    padding-bottom: 1.5rem;
   }
 }
 </style>
