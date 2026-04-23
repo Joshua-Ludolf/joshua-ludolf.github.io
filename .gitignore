@@ -15,6 +15,7 @@ coverage
 *.local
 
 # Editor directories and files
+Agents.md
 .vscode/*
 !.vscode/extensions.json
 .idea

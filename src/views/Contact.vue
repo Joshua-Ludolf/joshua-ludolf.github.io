@@ -112,21 +112,21 @@ const resetForm = () => {
                 class="email-btn default-email" 
                 target="_blank"
               >
-                <span>📧 Open in Default Email App</span>
+                <span>📧 Default Email App</span>
               </a>
               <a 
                 :href="`https://mail.google.com/mail/?view=cm&fs=1&to=${contactInfo.email}&su=Contact%20from%20Website&body=Hi%20Joshua,%0D%0A%0D%0AI'm%20reaching%20out%20from%20your%20website.%0D%0A%0D%0AName:%20%0D%0AEmail:%20%0D%0AMessage:%20%0D%0A%0D%0ABest%20regards`"
                 class="email-btn gmail-btn" 
                 target="_blank"
               >
-                <span>📮 Open in Gmail</span>
+                <span>📮 Gmail</span>
               </a>
               <a 
                 :href="`https://outlook.live.com/mail/0/deeplink/compose?to=${contactInfo.email}&subject=Contact%20from%20Website&body=Hi%20Joshua,%0D%0A%0D%0AI'm%20reaching%20out%20from%20your%20website.%0D%0A%0D%0AName:%20%0D%0AEmail:%20%0D%0AMessage:%20%0D%0A%0D%0ABest%20regards`"
                 class="email-btn outlook-btn" 
                 target="_blank"
               >
-                <span>📫 Open in Outlook Web</span>
+                <span>📫 Outlook Web</span>
               </a>
             </div>
           </div>

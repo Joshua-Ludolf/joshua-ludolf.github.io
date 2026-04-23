@@ -9,9 +9,9 @@ const education = ref({
     graduationDate: 'May 2025'
   },
   current: {
-    degree: 'Master\'s in Artificial Intelligence', 
+    degree: 'Master\'s degree in Artificial Intelligence', 
     university: 'University of Texas at Austin',
-    graduationDate: 'June 2027'
+        graduationDate: 'May 2026'
   }
 })
 
@@ -23,19 +23,19 @@ const portfolioInfo = ref({
 
 const skillCategories = ref([
   {
-    title: 'Languages',
-    icon: '💻',
-    tags: ['Python', 'Java', 'HTML', 'CSS', 'SQL', 'Markdown']
+    title: 'Specialized Expertise',
+    description: 'Deep knowledge in artificial intelligence, machine learning model development, and data processing for advanced applications.',
+    icon: '🧠'
   },
   {
-    title: 'Frameworks',
-    icon: '⚙️',
-    tags: ['PyTorch', 'TensorFlow', 'Flask', 'Django', 'FastAPI', 'Vue.js']
+    title: 'Full-Stack Development',
+    description: 'End-to-end web application development from backend services to responsive frontend interfaces using modern technologies.',
+    icon: '🏗️'
   },
   {
-    title: 'Tools & Platforms',
-    icon: '🛠️',
-    tags: ['Docker', 'Git', 'GitHub', 'VS Code', 'Jupyter', 'Linux']
+    title: 'Data & Analytics',
+    description: 'Database design, SQL optimization, data processing pipelines, and analytics for informed decision-making.',
+    icon: '📊'
   }
 ])
 </script>
@@ -80,16 +80,15 @@ const skillCategories = ref([
     </div>
   </section>
 
-  <!-- Skills preview -->
+  <!-- Technical Expertise Section -->
   <section class="skills-preview-section">
     <div class="container">
-      <h2 class="section-title">What I Work With</h2>
-      <div class="skills-grid">
-        <div v-for="cat in skillCategories" :key="cat.title" class="skill-category">
-          <h3>{{ cat.icon }} {{ cat.title }}</h3>
-          <div class="skill-tags">
-            <span v-for="tag in cat.tags" :key="tag" class="skill-tag">{{ tag }}</span>
-          </div>
+      <h2 class="section-title">Technical Expertise</h2>
+      <div class="expertise-grid">
+        <div v-for="expertise in skillCategories" :key="expertise.title" class="expertise-card">
+          <div class="expertise-icon">{{ expertise.icon }}</div>
+          <h3>{{ expertise.title }}</h3>
+          <p>{{ expertise.description }}</p>
         </div>
       </div>
     </div>

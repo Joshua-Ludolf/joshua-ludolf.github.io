@@ -25,7 +25,7 @@ const education = ref({
   current: {
     degree: 'Master\'s degree in Artificial Intelligence',
     institution: 'University of Texas at Austin', 
-    graduation: 'June 2027'
+        graduation: 'May 2026'
   }
 })
 
@@ -37,15 +37,14 @@ const aboutInfo = ref({
 <template>
   <div class="page-wrapper">
     <section id="about">
-      <div class="container">
-        <!-- Introduction -->
-        <div class="about-intro">
-          <h2>About Me</h2>
-          <p class="intro-text">{{ aboutInfo.intro }}</p>
-        </div>
+      <div class="about-header">
+        <h2>About Me</h2>
+        <p class="about-intro-text">{{ aboutInfo.intro }}</p>
+      </div>
 
-        <!-- Cards grid -->
-        <div class="about-grid">
+      <div class="about-container">
+        <!-- Main cards grid (3 columns) -->
+        <div class="about-cards-grid">
           <!-- Skills -->
           <div class="about-card">
             <h3><i class="icon">💻</i> Technical Skills</h3>
@@ -72,7 +71,7 @@ const aboutInfo = ref({
           <!-- Experience -->
           <div class="about-card">
             <h3><i class="icon">🚀</i> Experience</h3>
-            <p>
+            <p style="text-align: center; margin-bottom: 1.5rem;">
               I have worked on various projects, including <strong>web applications</strong> and
               <strong>machine learning models</strong>. My experience includes:
             </p>
@@ -99,8 +98,10 @@ const aboutInfo = ref({
               </p>
             </div>
           </div>
+        </div>
 
-          <!-- Connect CTA -->
+        <!-- Centered Connect CTA (full width) -->
+        <div class="about-cta-wrapper">
           <div class="about-card contact-cta">
             <h3><i class="icon">📧</i> Let's Connect</h3>
             <p>
@@ -116,5 +117,42 @@ const aboutInfo = ref({
 </template>
 
 <style scoped>
-/* Page-specific styles can go here if needed */
+.about-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.about-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.about-cta-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.about-cta-wrapper .about-card {
+  max-width: 600px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .about-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .about-cta-wrapper .about-card {
+    max-width: 100%;
+  }
+}
 </style>
+
+(End of file - total 137 lines)
