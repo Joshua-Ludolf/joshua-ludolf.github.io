@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Publication from '@/views/Publication.vue'
 import About from '@/views/About.vue'
@@ -8,7 +8,9 @@ import Privacy from '@/views/Privacy.vue'
 import Terms from '@/views/Terms.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: import.meta.env.DEV
+    ? createWebHistory(import.meta.env.BASE_URL)
+    : createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
