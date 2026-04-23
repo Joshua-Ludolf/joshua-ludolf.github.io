@@ -21,7 +21,7 @@
           <a href="https://arxiv.org/abs/2501.14739" target="_blank" class="meta-value-link">arXiv</a>
         </div>
       </div>
-      <p class="summary-text">This research focuses on the reliability and performance of storage systems, specifically addressing the challenge of detecting fail-slow disks. It proposes a hybrid deep learning framework combining convolutional-recurrent layers with self-attention mechanisms to model complex temporal dependencies in disk metrics.</p>
+      <p class="summary-text">This research focuses on the reliability and performance of storage systems, specifically addressing the challenge of detecting fail-slow disks. Compared multiple approaches and found that performance varies depending on the environment, meaning no single model works best in all cases.</p>
     </section>
     <div class="divider"></div>
     <!-- Publication 2: eEngrXiv -->
