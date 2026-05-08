@@ -8,7 +8,7 @@ const education = ref({
     university: 'Texas A&M University of San Antonio',
     graduationDate: 'May 2025'
   },
-  current: {
+  latest: {
     degree: 'Master\'s degree in Artificial Intelligence', 
     university: 'University of Texas at Austin',
         graduationDate: 'May 2026'
@@ -62,11 +62,11 @@ const skillCategories = ref([
           </div>
         </div>
         <div class="education-card">
-          <h3>Currently Pursuing</h3>
+          <h3>Alumni</h3>
           <div class="degree-info">
-            <h4>{{ education.current.degree }}</h4>
-            <p class="university">{{ education.current.university }}</p>
-            <p class="graduation-date">Expected {{ education.current.graduationDate }}</p>
+            <h4>{{ education.latest.degree }}</h4>
+            <p class="university">{{ education.latest.university }}</p>
+            <p class="graduation-date">Graduated {{ education.latest.graduationDate }}</p>
           </div>
         </div>
       </div>

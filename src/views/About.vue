@@ -22,7 +22,7 @@ const education = ref({
     institution: 'Texas A&M University of San Antonio',
     graduation: 'May 2025'
   },
-  current: {
+  latest: {
     degree: 'Master\'s degree in Artificial Intelligence',
     institution: 'University of Texas at Austin', 
         graduation: 'May 2026'
@@ -90,11 +90,11 @@ const aboutInfo = ref({
                 <strong>{{ education.previous.institution }}</strong><br>
                 Graduated: {{ education.previous.graduation }}
               </p>
-              <h4>Currently Pursuing</h4>
+              <h4>Alumni</h4>
               <p>
-                {{ education.current.degree }}<br>
-                <strong>{{ education.current.institution }}</strong><br>
-                Expected: {{ education.current.graduation }}
+                {{ education.latest.degree }}<br>
+                <strong>{{ education.latest.institution }}</strong><br>
+                Graduated: {{ education.latest.graduation }}
               </p>
             </div>
           </div>
@@ -154,5 +154,3 @@ const aboutInfo = ref({
   }
 }
 </style>
-
-(End of file - total 137 lines)
