@@ -10,6 +10,7 @@ load_dotenv()
 
 MODEL = os.getenv("OPENROUTER_MODEL", "openai/gpt-4o-mini")
 PORT = int(os.getenv("AVATAR_CHAT_PORT", "8787"))
+HOST = os.getenv("AVATAR_CHAT_HOST", "127.0.0.1")
 
 SYSTEM_PROMPT = """You are Joshua Ludolf's AI portfolio avatar.
 Answer questions using the portfolio facts below. Be concise, warm, and accurate.
@@ -42,7 +43,17 @@ class ChatHandler(BaseHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Methods", "POST, OPTIONS")
         self.end_headers()
 
+    def do_GET(self):
+        if self.path == "/health":
+            self._send(200, {"status": "ok"})
+            return
+        self._send(404, {"error": "Not found"})
+
     def do_POST(self):
+        if self.path == "/health":
+            self._send(200, {"status": "ok"})
+            return
+
         if self.path == "/api/token":
             self._issue_token()
             return
@@ -115,5 +126,5 @@ class ChatHandler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    print(f"Avatar chat API listening on http://127.0.0.1:{PORT}/api/avatar/chat")
-    ThreadingHTTPServer(("127.0.0.1", PORT), ChatHandler).serve_forever()
+    print(f"Avatar chat API listening on http://{HOST}:{PORT}")
+    ThreadingHTTPServer((HOST, PORT), ChatHandler).serve_forever()

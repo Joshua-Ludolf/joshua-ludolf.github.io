@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: joshua-ludolf-avatar
+    runtime: python
+    rootDir: avatar-agent
+    buildCommand: pip install .
+    startCommand: python production.py
+    healthCheckPath: /health
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: LIVEKIT_URL
+        sync: false
+      - key: LIVEKIT_API_KEY
+        sync: false
+      - key: LIVEKIT_API_SECRET
+        sync: false
+      - key: SYNTHESIA_API_KEY
+        sync: false
+      - key: AVATAR_CHAT_ORIGIN
+        value: https://joshua-ludolf.github.io

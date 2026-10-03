@@ -64,6 +64,15 @@ This is a Vue.js single-page application (SPA) version of Joshua Ludolf's portfo
 Set `AVATAR_AUTOSTART_AGENT=false` when you want to run the frontend and token API
 without starting the LiveKit worker.
 
+### Public live avatar deployment
+
+GitHub Pages hosts only the Vue frontend. The LiveKit token API and Synthesia
+worker must run on a public Python host. A Render blueprint is included in
+`render.yaml`; create the service from that file and add the five secret
+environment variables shown there. Then add the resulting API URL plus
+`/api/token` as the repository secret `VITE_AVATAR_TOKEN_ENDPOINT` and push to
+`main` so GitHub Pages rebuilds with the public endpoint.
+
 ## Project Setup
 
 ```sh
