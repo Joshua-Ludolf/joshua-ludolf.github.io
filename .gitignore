@@ -26,6 +26,8 @@ Agents.md
 *.sw?
 *.env
 .venv
+__pycache__/
+*.egg-info/
 
 *.tsbuildinfo
 

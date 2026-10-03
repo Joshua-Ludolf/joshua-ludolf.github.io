@@ -1,9 +1,0 @@
-README.md
-agent.py
-chat_api.py
-pyproject.toml
-avatar_agent.egg-info/PKG-INFO
-avatar_agent.egg-info/SOURCES.txt
-avatar_agent.egg-info/dependency_links.txt
-avatar_agent.egg-info/requires.txt
-avatar_agent.egg-info/top_level.txt
