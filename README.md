@@ -79,10 +79,13 @@ blueprint in `render.yaml` to run both processes together.
    `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`, and `SYNTHESIA_API_KEY`.
    Never commit these values or put them in the Pages build.
 3. Copy the deployed Render URL, for example
-   `https://joshua-ludolf-avatar.onrender.com`, and append `/api/token`.
-   Add that complete URL as the GitHub repository secret
+   `https://joshua-ludolf-avatar.onrender.com`. Add either that base URL or the
+   full token URL (`https://joshua-ludolf-avatar.onrender.com/api/token`) as the
+   GitHub repository secret
    `VITE_AVATAR_TOKEN_ENDPOINT` under **Settings → Secrets and variables →
    Actions**.
+   If the secret is missing, production builds now default to
+   `https://joshua-ludolf-avatar.onrender.com/api/token`.
 4. Push any commit to `main`, or rerun **Deploy to GitHub Pages**. The Pages
    build embeds the secret endpoint in the frontend.
 5. Open the site in a new/private browser window. The Render service's

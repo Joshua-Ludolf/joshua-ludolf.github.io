@@ -65,7 +65,20 @@ const showSubtitles = ref(true)
 const volume = ref(1)
 const rate = ref(1)
 const pitch = ref(1)
-const tokenEndpoint = import.meta.env.VITE_AVATAR_TOKEN_ENDPOINT || '/api/token'
+const defaultHostedTokenEndpoint = 'https://joshua-ludolf-avatar.onrender.com/api/token'
+
+const normalizeTokenEndpoint = (endpoint) => {
+  const value = endpoint?.trim()
+  if (!value) return ''
+  if (value === '/api/token' || value.endsWith('/api/token')) return value
+  return `${value.replace(/\/+$/, '')}/api/token`
+}
+
+const tokenEndpoint = (() => {
+  const configured = normalizeTokenEndpoint(import.meta.env.VITE_AVATAR_TOKEN_ENDPOINT)
+  if (configured) return configured
+  return import.meta.env.PROD ? defaultHostedTokenEndpoint : '/api/token'
+})()
 const videoElement = ref(null)
 const audioElement = ref(null)
 const liveRoom = ref(null)
