@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "synthesia-interactive-avatar": {
+      "source": "synthesia-ai/skills",
+      "sourceType": "github",
+      "skillPath": "skills/synthesia-interactive-avatar/SKILL.md",
+      "computedHash": "fc424a63037cfc99496da6e6b5e356fb52b88c6ea81ad1627becbe139f1b3f8d"
+    }
+  }
+}

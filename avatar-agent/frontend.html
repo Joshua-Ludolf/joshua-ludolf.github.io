@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua's Synthesia Avatar</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .status {
+            text-align: center;
+            margin-top: 20px;
+            padding: 16px;
+            background: #111827;
+            border-radius: 12px;
+            border: 1px solid rgba(99, 102, 241, 0.15);
+        }
+        .status.connected { border-color: #22c55e; }
+        .status.connecting { border-color: #f59e0b; }
+        .status.error { border-color: #ef4444; }
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #64748b;
+        }
+        .status-dot.connected { background: #22c55e; animation: pulse 2s infinite; }
+        .status-dot.connecting { background: #f59e0b; animation: blink 1s infinite; }
+        .status-dot.error { background: #ef4444; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .controls {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 12px 24px;
+            border-radius: 10px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+        }
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+        }
+        .btn-secondary {
+            background: #1e293b;
+            color: #cbd5e1;
+            border: 1px solid #334155;
+        }
+        .btn-secondary:hover:not(:disabled) {
+            background: #334155;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .info {
+            margin-top: 30px;
+            padding: 20px;
+            background: #111827;
+            border-radius: 12px;
+            border: 1px solid rgba(99, 102, 241, 0.15);
+        }
+        .info h3 {
+            margin-bottom: 12px;
+            color: #cbd5e1;
+        }
+        .info ul {
+            list-style: none;
+        }
+        .info li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info li:last-child { border-bottom: none; }
+        .info .icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            color: #6366f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Joshua's AI Avatar</h1>
+        <p class="subtitle">Powered by Synthesia Interactive Avatar + LiveKit</p>
+        
+        <div class="video-container">
+            <video id="avatarVideo" autoplay playsinline muted></video>
+        </div>
+        
+        <div class="status" id="status">
+            <span class="status-indicator">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">Disconnected</span>
+            </span>
+        </div>
+        
+        <div class="controls">
+            <button id="connectBtn" class="btn-primary" onclick="connect()">Connect to Avatar</button>
+            <button id="disconnectBtn" class="btn-secondary" onclick="disconnect()" disabled>Disconnect</button>
+        </div>
+        
+        <div class="info">
+            <h3>What you can ask:</h3>
+            <ul>
+                <li><span class="icon">🎓</span> "What's Joshua's education background?"</li>
+                <li><span class="icon">💻</span> "What are Joshua's technical skills?"</li>
+                <li><span class="icon">🚀</span> "What projects has Joshua worked on?"</li>
+                <li><span class="icon">📧</span> "How can I contact Joshua?"</li>
+                <li><span class="icon">🧠</span> "Tell me about Joshua's AI experience"</li>
+                <li><span class="icon">💡</span> "What are Joshua's interests?"</li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="module">
+        import { Room, RoomEvent, Track, RemoteParticipant, VideoQuality } from 'https://cdn.jsdelivr.net/npm/livekit-client@2.5.0/+esm';
+        
+        let room = null;
+        const videoEl = document.getElementById('avatarVideo');
+        const statusEl = document.getElementById('status');
+        const statusDot = document.getElementById('statusDot');
+        const statusText = document.getElementById('statusText');
+        const connectBtn = document.getElementById('connectBtn');
+        const disconnectBtn = document.getElementById('disconnectBtn');
+        
+        // You'll need to create a token endpoint on your backend
+        // For now, this expects a token from a server endpoint
+        async function getToken() {
+            // Replace with your actual token endpoint
+            const response = await fetch('/api/token', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    room: 'joshua-avatar-room',
+                    identity: 'user-' + Math.random().toString(36).substr(2, 9)
+                })
+            });
+            if (!response.ok) throw new Error('Failed to get token');
+            const data = await response.json();
+            return data.token;
+        }
+        
+        async function connect() {
+            try {
+                setStatus('connecting', 'Connecting...');
+                connectBtn.disabled = true;
+                
+                const token = await getToken();
+                
+                room = new Room({
+                    adaptiveStream: false, // Keep full resolution for avatar
+                });
+                
+                room.on(RoomEvent.TrackSubscribed, (track, publication, participant) => {
+                    if (track.kind === Track.Kind.Video && participant.identity.includes('agent')) {
+                        track.attach(videoEl);
+                        publication.setVideoQuality(VideoQuality.HIGH);
+                    }
+                });
+                
+                room.on(RoomEvent.ParticipantConnected, (participant) => {
+                    if (participant.identity.includes('agent')) {
+                        setStatus('connected', 'Avatar connected - Start speaking!');
+                    }
+                });
+                
+                room.on(RoomEvent.Disconnected, () => {
+                    setStatus('error', 'Disconnected');
+                    connectBtn.disabled = false;
+                    disconnectBtn.disabled = true;
+                });
+                
+                await room.connect('wss://your-project.livekit.cloud', token);
+                
+                disconnectBtn.disabled = false;
+                
+            } catch (error) {
+                console.error('Connection error:', error);
+                setStatus('error', 'Connection failed: ' + error.message);
+                connectBtn.disabled = false;
+            }
+        }
+        
+        function disconnect() {
+            if (room) {
+                room.disconnect();
+                room = null;
+            }
+            videoEl.srcObject = null;
+            connectBtn.disabled = false;
+            disconnectBtn.disabled = true;
+            setStatus('error', 'Disconnected');
+        }
+        
+        function setStatus(type, text) {
+            statusEl.className = 'status ' + type;
+            statusDot.className = 'status-dot ' + type;
+            statusText.textContent = text;
+        }
+    </script>
+</body>
+</html>

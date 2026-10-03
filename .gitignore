@@ -24,6 +24,8 @@ Agents.md
 *.njsproj
 *.sln
 *.sw?
+*.env
+.venv
 
 *.tsbuildinfo
 

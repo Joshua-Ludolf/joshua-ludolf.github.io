@@ -1,0 +1,21 @@
+[project]
+name = "avatar-agent"
+version = "0.1.0"
+description = "Synthesia Interactive Avatar agent for Joshua Ludolf's portfolio"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "livekit-agents[openai,silero]~=1.8",
+    "livekit-plugins-synthesia~=1.8",
+    "python-dotenv",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["agent", "chat_api"]
+
+[tool.uv]
+dev-dependencies = []

@@ -41,6 +41,13 @@ This is a Vue.js single-page application (SPA) version of Joshua Ludolf's portfo
    ```bash
    npm run dev
    ```
+   This starts both Vite and the local OpenRouter avatar API. The API key stays in
+   `avatar-agent/.env` and is never sent to the browser.
+   The dev launcher also starts the LiveKit/Synthesia worker so the avatar can join
+   the room and publish its lip-synced video. Allow microphone access in the browser,
+   then speak to the avatar. Typed questions are sent over LiveKit to the worker;
+   OpenRouter generates the response there, LiveKit Inference supplies the
+   male Cartesia speech audio, and Synthesia speaks/lip-syncs it.
 
 4. **Open your browser:**
    - The application will be available at `http://localhost:5173` (or the next available port)
@@ -48,9 +55,14 @@ This is a Vue.js single-page application (SPA) version of Joshua Ludolf's portfo
 
 ### Available Scripts
 
-- `npm run dev` - Start development server with hot reload
+- `npm run dev` - Start Vite and the local avatar API with hot reload
+- `npm run dev:frontend` - Start only the Vite frontend
+- `npm run dev:avatar` - Start only the local OpenRouter avatar API
 - `npm run build` - Build for production  
 - `npm run preview` - Preview production build locally
+
+Set `AVATAR_AUTOSTART_AGENT=false` when you want to run the frontend and token API
+without starting the LiveKit worker.
 
 ## Project Setup
 

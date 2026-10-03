@@ -7,11 +7,14 @@
     "node": "^20.19.0 || >=22.12.0"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "node scripts/dev-with-avatar.mjs",
+    "dev:frontend": "vite",
+    "dev:avatar": "uv run --project avatar-agent python chat_api.py",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "livekit-client": "^2.15.6",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3"
   },
