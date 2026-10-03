@@ -67,11 +67,31 @@ without starting the LiveKit worker.
 ### Public live avatar deployment
 
 GitHub Pages hosts only the Vue frontend. The LiveKit token API and Synthesia
-worker must run on a public Python host. A Render blueprint is included in
-`render.yaml`; create the service from that file and add the five secret
-environment variables shown there. Then add the resulting API URL plus
-`/api/token` as the repository secret `VITE_AVATAR_TOKEN_ENDPOINT` and push to
-`main` so GitHub Pages rebuilds with the public endpoint.
+worker must run on a public Python host. The repository includes a Render
+blueprint in `render.yaml` to run both processes together.
+
+1. Open [Render](https://dashboard.render.com/), choose **New → Blueprint**,
+   connect `Joshua-Ludolf/joshua-ludolf.github.io`, and select the `main`
+   branch.
+2. Review the `joshua-ludolf-avatar` web service and create it. In the
+   service's **Environment** page, enter these five values from
+   `avatar-agent/.env`: `OPENROUTER_API_KEY`, `LIVEKIT_URL`,
+   `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`, and `SYNTHESIA_API_KEY`.
+   Never commit these values or put them in the Pages build.
+3. Copy the deployed Render URL, for example
+   `https://joshua-ludolf-avatar.onrender.com`, and append `/api/token`.
+   Add that complete URL as the GitHub repository secret
+   `VITE_AVATAR_TOKEN_ENDPOINT` under **Settings → Secrets and variables →
+   Actions**.
+4. Push any commit to `main`, or rerun **Deploy to GitHub Pages**. The Pages
+   build embeds the secret endpoint in the frontend.
+5. Open the site in a new/private browser window. The Render service's
+   `/health` endpoint should return `{"status":"ok"}` and the avatar should
+   connect after microphone permission is granted.
+
+Render's free service may sleep when idle, so the first avatar connection can
+take a minute while the worker starts. If `/health` is unavailable, inspect
+the Render logs before testing the frontend.
 
 ## Project Setup
 
