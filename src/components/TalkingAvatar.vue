@@ -65,7 +65,10 @@ const showSubtitles = ref(true)
 const volume = ref(1)
 const rate = ref(1)
 const pitch = ref(1)
-const tokenEndpoint = import.meta.env.VITE_AVATAR_TOKEN_ENDPOINT || '/api/token'
+const tokenEndpoint = import.meta.env.VITE_AVATAR_TOKEN_ENDPOINT
+  || (import.meta.env.PROD
+    ? 'https://joshua-ludolf-avatar-production.up.railway.app/api/token'
+    : '/api/token')
 const videoElement = ref(null)
 const audioElement = ref(null)
 const liveRoom = ref(null)
