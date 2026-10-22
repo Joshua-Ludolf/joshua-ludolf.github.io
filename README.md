@@ -70,31 +70,27 @@ without starting the LiveKit worker.
 ### Public live avatar deployment
 
 GitHub Pages hosts only the Vue frontend. The LiveKit token API and Synthesia
-worker must run on a public Python host. The repository includes a Render
-blueprint in `render.yaml` to run both processes together.
+worker run on Railway from the `avatar-agent` directory.
 
-1. Open [Render](https://dashboard.render.com/), choose **New → Blueprint**,
-   connect `Joshua-Ludolf/joshua-ludolf.github.io`, and select the `main`
-   branch.
-2. Review the `joshua-ludolf-avatar` web service and create it. In the
-   service's **Environment** page, enter these six values from
-   `avatar-agent/.env`: `OPENROUTER_API_KEY`, `NVIDIA_API_KEY`, `LIVEKIT_URL`,
-   `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`, and `SYNTHESIA_API_KEY`.
-   Never commit these values or put them in the Pages build.
-3. Copy the deployed Render URL, for example
-   `https://joshua-ludolf-avatar.onrender.com`, and append `/api/token`.
-   Add that complete URL as the GitHub repository secret
-   `VITE_AVATAR_TOKEN_ENDPOINT` under **Settings → Secrets and variables →
-   Actions**.
-4. Push any commit to `main`, or rerun **Deploy to GitHub Pages**. The Pages
-   build embeds the secret endpoint in the frontend.
-5. Open the site in a new/private browser window. The Render service's
-   `/health` endpoint should return `{"status":"ok"}` and the avatar should
-   connect after microphone permission is granted.
+1. Create a Railway service using the repository's `avatar-agent` directory.
+  Use `avatar-agent/Dockerfile` (or set the service root directory to
+  `avatar-agent`) and expose the service's generated public URL.
+2. In Railway's **Variables** page, enter these six values from
+  `avatar-agent/.env`: `OPENROUTER_API_KEY`, `NVIDIA_API_KEY`, `LIVEKIT_URL`,
+  `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`, and `SYNTHESIA_API_KEY`.
+  Never commit these values or put them in the Pages build.
+3. The production frontend uses
+  `https://joshua-ludolf-avatar-production.up.railway.app/api/token` by
+  default. If Railway assigns a different public URL, set that complete
+  `/api/token` URL as the GitHub repository secret
+  `VITE_AVATAR_TOKEN_ENDPOINT` under **Settings → Secrets and variables →
+  Actions**, then redeploy the Pages site.
+4. Open the site in a new/private browser window. The Railway service's
+  `/health` endpoint should return `{"status":"ok"}` and the avatar should
+  connect after microphone permission is granted.
 
-Render's free service may sleep when idle, so the first avatar connection can
-take a minute while the worker starts. If `/health` is unavailable, inspect
-the Render logs before testing the frontend.
+If `/health` is unavailable, inspect the Railway deployment logs and confirm
+the service is listening on Railway's `PORT` value before testing the frontend.
 
 ## Project Setup
 
