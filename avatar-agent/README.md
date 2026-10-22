@@ -34,6 +34,20 @@ Then test in the **LiveKit Cloud Agent Console**:
 3. Click **Start session**
 4. Speak to the avatar - it will lip-sync responses about Joshua Ludolf
 
+## Docker
+
+Build and run the combined token API and LiveKit agent:
+
+```bash
+docker build -t joshua-avatar-agent .
+docker run --rm --env-file .env -p 8787:8787 joshua-avatar-agent
+```
+
+The container exposes the token API at `http://localhost:8787`. In hosted
+environments, set the service's `PORT` variable and pass the required
+credentials through the platform's secret manager; do not copy `.env` into the
+image.
+
 ## Notes
 
 - The avatar uses Synthesia's "Kenji" avatar (ID: `7572faa9-15da-400d-8227-ef1ab8932523`)
