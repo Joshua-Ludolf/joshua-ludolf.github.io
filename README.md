@@ -46,8 +46,11 @@ This is a Vue.js single-page application (SPA) version of Joshua Ludolf's portfo
    The dev launcher also starts the LiveKit/Synthesia worker so the avatar can join
    the room and publish its lip-synced video. Allow microphone access in the browser,
    then speak to the avatar. Typed questions are sent over LiveKit to the worker;
-   OpenRouter generates the response there, LiveKit Inference supplies the
-   male Cartesia speech audio, and Synthesia speaks/lip-syncs it.
+   OpenRouter generates the response there, NVIDIA Magpie Multilingual supplies
+   the speech audio, and Synthesia speaks/lip-syncs it. The agent requires an
+   `NVIDIA_API_KEY` in `avatar-agent/.env`.
+   For local setup, copy `avatar-agent/.env.example` to `avatar-agent/.env`
+   and fill in the LiveKit, Synthesia, OpenRouter, and NVIDIA credentials.
 
 4. **Open your browser:**
    - The application will be available at `http://localhost:5173` (or the next available port)
@@ -74,8 +77,8 @@ blueprint in `render.yaml` to run both processes together.
    connect `Joshua-Ludolf/joshua-ludolf.github.io`, and select the `main`
    branch.
 2. Review the `joshua-ludolf-avatar` web service and create it. In the
-   service's **Environment** page, enter these five values from
-   `avatar-agent/.env`: `OPENROUTER_API_KEY`, `LIVEKIT_URL`,
+   service's **Environment** page, enter these six values from
+   `avatar-agent/.env`: `OPENROUTER_API_KEY`, `NVIDIA_API_KEY`, `LIVEKIT_URL`,
    `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`, and `SYNTHESIA_API_KEY`.
    Never commit these values or put them in the Pages build.
 3. Copy the deployed Render URL, for example

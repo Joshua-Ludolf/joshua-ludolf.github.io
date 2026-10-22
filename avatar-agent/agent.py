@@ -4,13 +4,31 @@ import json
 import os
 
 from dotenv import load_dotenv
-from livekit.agents import Agent, AgentSession, JobContext, WorkerOptions, cli, inference
+from livekit.agents import Agent, AgentSession, JobContext, WorkerOptions, cli
 from livekit.plugins import openai, synthesia
+from nvidia_tts import create_nvidia_magpie_tts
 
 load_dotenv()
 
+REQUIRED_ENVIRONMENT = (
+    "LIVEKIT_URL",
+    "LIVEKIT_API_KEY",
+    "LIVEKIT_API_SECRET",
+    "SYNTHESIA_API_KEY",
+    "OPENROUTER_API_KEY",
+    "NVIDIA_API_KEY",
+)
+
 
 async def entrypoint(ctx: JobContext):
+    missing = [name for name in REQUIRED_ENVIRONMENT if not os.getenv(name)]
+    if missing:
+        raise RuntimeError(
+            "Missing required avatar-agent environment variables: "
+            + ", ".join(missing)
+            + ". Copy avatar-agent/.env.example to avatar-agent/.env and fill in the values."
+        )
+
     await ctx.connect()
 
     # Use OpenRouter's chat-completions API. OpenRouter does not expose the
@@ -20,16 +38,8 @@ async def entrypoint(ctx: JobContext):
             model=os.getenv("OPENROUTER_MODEL", "openai/gpt-4o-mini"),
             api_key=os.environ["OPENROUTER_API_KEY"],
         ),
-        # LiveKit Inference provides the speech audio that Synthesia lip-syncs.
-        # This keeps OpenRouter responsible for generated text while avoiding a
-        # second provider key for TTS.
-        tts=inference.TTS(
-            model=os.getenv("LIVEKIT_TTS_MODEL", "cartesia/sonic-3.6"),
-            voice=os.getenv(
-                "CARTESIA_VOICE_ID",
-                "47c38ca4-5f35-497b-b1a3-415245fb35e1",
-            ),
-        ),
+        # NVIDIA Magpie provides the speech audio that Synthesia lip-syncs.
+        tts=create_nvidia_magpie_tts(),
     )
 
     # Attach the avatar BEFORE session.start() — order matters.

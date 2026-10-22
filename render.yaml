@@ -9,6 +9,8 @@ services:
     envVars:
       - key: OPENROUTER_API_KEY
         sync: false
+      - key: NVIDIA_API_KEY
+        sync: false
       - key: LIVEKIT_URL
         sync: false
       - key: LIVEKIT_API_KEY
