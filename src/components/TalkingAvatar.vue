@@ -898,7 +898,7 @@ const setRate = (val) => {
 @media (max-width: 480px) {
   .avatar-window {
     width: calc(100vw - 20px);
-    height: calc(100vh - 20px);
+    height: calc(100dvh - 20px);
     max-width: none;
     max-height: none;
     border-radius: 16px;
@@ -919,6 +919,47 @@ const setRate = (val) => {
   
   .avatar-controls {
     padding: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .avatar-window {
+    box-sizing: border-box;
+    width: min(420px, calc(100vw - 20px));
+    height: min(760px, calc(100dvh - 20px));
+    min-height: 0;
+    left: 10px;
+    top: 10px;
+    right: auto !important;
+    bottom: auto !important;
+  }
+
+  .avatar-video-container {
+    min-height: 0;
+  }
+
+  .avatar-controls {
+    flex: 0 1 auto;
+    max-height: 52%;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .quick-chip {
+    flex: 1 1 100%;
+    min-height: 40px;
+    white-space: normal;
+  }
+
+  .custom-input {
+    min-width: 0;
+    font-size: 16px;
+  }
+
+  .slider-group {
+    min-width: 120px;
   }
 }
 
